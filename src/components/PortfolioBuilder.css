@@ -1,32 +1,28 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Background  */
+/* Background Setup */
 .fullscreen-bg {
     display: flex;
-    justify-content: center; /* Centers the box horizontally */
-    align-items: center;     /* Centers the box vertically */
-    width: 100vw;            /* 100% of viewport width */
-    height: 100vh;           /* 100% of viewport height */
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    overflow: hidden;        /* Prevents accidental scrolling */
+    overflow: hidden;
 }
 
-/* The Glass Card - Transparent Maroon */
+/* Glass Card Design - Maroon/Translucent */
 .glass-card {
     width: 90%;
-    max-width: 420px;        
+    max-width: 420px;
     padding: 37px;
-    
-    /* Opacity  */
     background-color: rgba(128, 0, 0, 0.6); 
-    
     border-radius: 25px;
     backdrop-filter: blur(12px);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
@@ -34,28 +30,26 @@
     border: 1px solid rgba(255, 255, 255, 0.1); 
 }
 
-/* Text Customization */
 .project-title {
     color: white;
-    font-size: 26px;        /* Slightly larger for impact */
+    font-size: 26px;
     font-weight: 800;
     text-transform: uppercase;
-    margin-bottom: 4px;     
+    margin-bottom: 4px;
     font-family: sans-serif;
 }
 
 .project-tagline {
-    color: #ffd700;         /* Gold accent */
-    font-size: 14px;        /* Balanced size */
-    margin-bottom: 25px;    
+    color: #ffd700; /* Gold color */
+    font-size: 14px;
+    margin-bottom: 25px;
     font-weight: 500;
 }
 
-/* Layout */
 .form-stack {
     display: flex;
     flex-direction: column;
-    gap: 13px;              /* Spacing between each input box */
+    gap: 13px;
 }
 
 input, select, textarea {
@@ -65,22 +59,16 @@ input, select, textarea {
     border: none;
     border-radius: 10px;
     background-color: white;
-    color: #333;            /* Ensures text is dark and readable */
+    color: #333;
     outline: none;
 }
 
-/* Ensures the dropdown options aren't invisible */
+/* Customizing Dropdown Arrow */
 select {
-    color: #333 !important;
     cursor: pointer;
 }
 
-textarea {
-    resize: none;           /* Prevents the user from breaking the layout */
-    font-family: inherit;
-}
-
-/* Submit Button */
+/* Submit Button Logic */
 .submit-btn {
     width: 100%;
     padding: 14px;
@@ -92,9 +80,18 @@ textarea {
     font-size: 14px;
     cursor: pointer;
     margin-top: 10px;
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-.submit-btn:hover {
+.submit-btn:hover:not(:disabled) {
     background-color: #ffd700;
+    transform: translateY(-2px);
+}
+
+/* UI/UX for when the form is submitting */
+.submit-btn:disabled {
+    background-color: #aaaaaa;
+    color: #666666;
+    cursor: not-allowed;
+    opacity: 0.7;
 }
