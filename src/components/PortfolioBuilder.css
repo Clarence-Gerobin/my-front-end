@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-/* Background Setup */
+/* Background */
 .fullscreen-bg {
     display: flex;
     justify-content: center;
@@ -17,19 +17,21 @@
     overflow: hidden;
 }
 
-/* Glass Card Design - Maroon/Translucent */
+/* The Glass Card - Transparent Maroon */
 .glass-card {
     width: 90%;
     max-width: 420px;
     padding: 37px;
-    background-color: rgba(128, 0, 0, 0.6); 
+    background-color: rgba(128, 0, 0, 0.6);
     border-radius: 25px;
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Safari support */
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Text Customization */
 .project-title {
     color: white;
     font-size: 26px;
@@ -40,12 +42,13 @@
 }
 
 .project-tagline {
-    color: #ffd700; /* Gold color */
+    color: #ffd700; /* Gold accent */
     font-size: 14px;
     margin-bottom: 25px;
     font-weight: 500;
 }
 
+/* Layout */
 .form-stack {
     display: flex;
     flex-direction: column;
@@ -56,42 +59,55 @@ input, select, textarea {
     width: 100%;
     font-size: 14px;
     padding: 13px;
-    border: none;
+    border: 2px solid transparent; /* Prepare for focus state */
     border-radius: 10px;
     background-color: white;
     color: #333;
     outline: none;
+    transition: all 0.3s ease; /* Smooth transition for typing */
 }
 
-/* Customizing Dropdown Arrow */
+/* NEW: Highlight the input box with Gold when the user clicks it */
+input:focus, select:focus, textarea:focus {
+    border: 2px solid #ffd700;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
 select {
+    color: #333 !important;
     cursor: pointer;
 }
 
-/* Submit Button Logic */
+textarea {
+    resize: none;
+    font-family: inherit;
+    min-height: 80px; /* Ensures it doesn't look too squished */
+}
+
+/* Submit Button */
 .submit-btn {
     width: 100%;
     padding: 14px;
     background-color: white;
-    color: #800000;
+    color: #800000; /* Maroon text */
     border: none;
     border-radius: 10px;
     font-weight: bold;
     font-size: 14px;
     cursor: pointer;
     margin-top: 10px;
-    transition: all 0.3s ease;
+    transition: 0.3s ease;
 }
 
-.submit-btn:hover:not(:disabled) {
+/* Hover effect */
+.submit-btn:not(:disabled):hover {
     background-color: #ffd700;
-    transform: translateY(-2px);
 }
 
-/* UI/UX for when the form is submitting */
+/* NEW: Disabled state while Render is waking up */
 .submit-btn:disabled {
-    background-color: #aaaaaa;
+    background-color: #cccccc;
     color: #666666;
     cursor: not-allowed;
-    opacity: 0.7;
+    opacity: 0.8;
 }
